@@ -509,7 +509,33 @@ index 901da07..ac459e1 100644
 
 Пример: `git diff 5fa9653 HEAD`
 
-#### Откат (шпаргалка)
+### Клонируем репозиторий
+
+#### Клонировать репозиторий — git clone
+
+Открой [этот репозиторий](https://github.com/yandex-praktikum/git-clone-lesson). Нажми на зелёную кнопку Code. Появится окно со ссылкой. Если ты уже настроил SSH-ключ, убедись что выбрана опция SSH и нажми на кнопку с двумя квадратами справа — она скопирует ссылку в буфер обмена.
+
+Теперь открой консоль, перейди в папку, в которую хочешь положить репозиторий, и выполни команду `git clone` (от англ. clone — «клон», «копия»). Она создаст копию удалённого репозитория на твоем компьютере. В качестве параметра команде нужно передать адрес репозитория, который ты только что скопировал на GitHub.
+
+```bash
+$ git clone https://github.com/yandex-praktikum/git-clone-lesson
+# укажи адрес репозитория, который нужно склонировать
+```
+
+Команда `git clone` автоматически связывает локальный и удалённый репозиторий. То есть если в GitHub-репозитории что-то поменяется (например, добавятся коммиты), тебе не нужно будет заново клонировать его. Достаточно будет выполнить команду, которая обновит твою копию.
+
+Убедись в том, что репозитории связаны, командой `git remote -v`.
+
+```bash
+$ cd git-clone-lesson
+$ git remote -v
+origin    git@github.com:yandex-praktikum/git-clone-lesson.git (fetch)
+origin    git@github.com:yandex-praktikum/git-clone-lesson.git (push)
+```
+
+Готово! Теперь на твоей машине есть копия удалённого репозитория.
+
+#### Шпаргалка. Откат изменений
 
 - Команда `git restore --staged <file>` переведёт файл из staged обратно в modified или untracked.
 - Команда `git reset --hard <commit hash>` «откатит» историю до коммита с хешем `<hash>`. Более поздние коммиты потеряются!
@@ -523,7 +549,7 @@ index 901da07..ac459e1 100644
 
 #### Синхронизация локального и удалённого репозиториев
 
-`git remote add origin https://github.com/YandexPracticum/first-project.git` (от англ. remote, «удалённый» + add, «добавить») — привяжи локальный репозиторий к удалённому с URL <https://github.com/YandexPracticum/first-project.git>;
+`git remote add origin https://github.com/YandexPracticum/first-project.git` (от англ. remote, «удалённый» + add, «добавить») — привяжи локальный репозиторий к удалённому с URL `https://github.com/YandexPracticum/first-project.git`;
 
 `git remote -v` (от англ. verbose, «подробный») — проверь, что репозитории действительно связались;
 
